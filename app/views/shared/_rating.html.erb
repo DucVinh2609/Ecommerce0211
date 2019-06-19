@@ -1,0 +1,6 @@
+<% (1..5).each do |i| %>
+  <% toggled = i <= current_rating.star_level.to_i ? "btn-warning" : "btn-default" %>
+  <%= button_tag(type: "button", class: "btn btn-lg #{toggled}") do %>
+    <i class="fa fa-star" aria-hidden="true"></i>
+  <% end %>
+<% end %>

@@ -1,0 +1,175 @@
+<div id="pageContent" class="starthide">
+  <!-- BEGIN content_for_index -->
+  <div id="shopify-section-1480804468506" class="shopify-section index-section">
+    <div class="tp-banner-container content" data-section-id="1480804468506" data-section-type="slideshow-section">
+      <div class="tp-banner-1480804468506" data-speed="16000" data-fullscreen="on"
+      data-startheight="800">
+        <ul>
+          <!-- SLIDE -->
+          <li data-transition="fade" data-slotamount="1" data-masterspeed="1000"
+          data-saveperformance="off" data-title="Slide">
+            <!-- MAIN IMAGE --><img src="//cdn.shopify.com/s/files/1/1637/5229/files/slide01_x1024.jpg?v=1481313719"
+            alt="" data-bgposition="top center" data-bgfit="cover" data-bgrepeat="no-repeat">
+            <div class="tp-caption lfb stb" data-x="center" data-y="center" data-voffset="0"
+            data-hoffset="0" data-speed="600" data-start="900" data-easing="Power4.easeOut"
+            data-endeasing="Power4.easeIn" style="z-index: 2;">
+              <div class="tp-caption3--wd-2"><%= t("homeContent.str1") %></div>
+              <div class="tp-caption3--wd-3"><%= t("homeContent.str2") %></div>
+              <div class="tp-caption3--wd-3"><%= t("homeContent.str3") %></div>
+              <div class="text-center"> <a href="/collections/accessories" class="link-button button--border-thick"
+                data-text="Shop now!"><%= t("homeContent.str4") %></a> </div>
+            </div>
+          </li>
+          <!-- /SLIDE -->
+          <!-- SLIDE -->
+          <li data-transition="fade" data-slotamount="1" data-masterspeed="1000"
+          data-saveperformance="off" data-title="Slide">
+            <!-- MAIN IMAGE --><img src="//cdn.shopify.com/s/files/1/1637/5229/files/slide02_x1024.jpg?v=1481313898"
+            alt="" data-bgposition="top center" data-bgfit="cover" data-bgrepeat="no-repeat">
+            <div class="tp-caption lfb stb" data-x="center" data-y="center" data-voffset="0"
+            data-hoffset="0" data-speed="600" data-start="900" data-easing="Power4.easeOut"
+            data-endeasing="Power4.easeIn" style="z-index: 2;">
+              <div class="tp-caption3--wd-2" style="color:#ffffff"><%= t("homeContent.str5") %></div>
+              <div class="tp-caption3--wd-3" style="color:#ffffff"><%= t("homeContent.str6") %></div>
+              <div class="tp-caption3--wd-3" style="color:#ffffff"><%= t("homeContent.str7") %></div>
+              <div class="text-center"> <a href="/collections/women-s" class="link-button button--border-thick"
+                data-text="Shop now!"><%= t("homeContent.str4") %></a> </div>
+            </div>
+          </li>
+          <!-- /SLIDE -->
+          <!-- SLIDE -->
+          <li data-transition="fade" data-slotamount="1" data-masterspeed="1000"
+          data-saveperformance="off" data-title="Slide">
+            <!-- MAIN IMAGE --><img src="//cdn.shopify.com/s/files/1/1637/5229/files/slide03_x1024.jpg?v=1481314169"
+            alt="" data-bgposition="top center" data-bgfit="cover" data-bgrepeat="no-repeat">
+            <div class="tp-caption lfb stb" data-x="center" data-y="center" data-voffset="0"
+            data-hoffset="0" data-speed="600" data-start="900" data-easing="Power4.easeOut"
+            data-endeasing="Power4.easeIn" style="z-index: 2;">
+              <div class="tp-caption3--wd-2" style="color:#ffffff"><%= t("homeContent.str8") %></div>
+              <div class="tp-caption3--wd-3" style="color:#ffffff"><%= t("homeContent.str9") %></div>
+              <div class="tp-caption3--wd-3" style="color:#ffffff"><%= t("homeContent.str10") %></div>
+              <div class="text-center"> <a href="/collections/women-s" class="link-button button--border-thick"
+                data-text="Shop now!"><%= t("homeContent.str4") %></a> </div>
+            </div>
+          </li>
+          <!-- /SLIDE -->
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div id="shopify-section-1480804481290" class="shopify-section">
+    <section class="content resize-js-1480804481290" data-section-id="1480804481290"
+    data-section-type="resize-section">
+      <div class="container collectionsall">
+        <div class="row">
+          <div class="clearfix"></div>
+          <% @categories.each do |category| %>
+          <div class="col-sm-6 col-md-6 col-lg-4">
+            <a href="/categories/<%= category.id %>" class="banner zoom-in">
+              <span class="figure buttononhover">
+              <img src="//cdn.shopify.com/s/files/1/1637/5229/files/img10-fashop_1024x1024.jpg?v=1480804611" alt="">
+                <span class="figcaption">
+                  <span class="block-table">
+                    <span class="block-table-cell">
+                      <span class="banner__title size40"><%= category.name %></span>
+                      <span class="btn btn--ys btn--xl"><%= t("homeContent.str4") %></span>
+                    </span>
+                  </span>
+                </span>
+              </span>
+            </a>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div id="shopify-section-1480804649554" class="shopify-section index-section">
+    <!-- featured products -->
+    <section class="content" data-section-id="1480804649554" data-section-type="featuredproducts-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-xl-12">
+            <div class="title-box">
+              <h2 class="text-left text-uppercase title-under">
+                <%= t("homeContent.str17") %>
+              </h2>
+            </div>
+            <!-- /title -->
+            <div class="product-listing carousel-products-mobile row featprod-js-1480804649554">
+              <% @products.each do |product| %>
+              <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+                <!-- product -->
+                <div class="product product--zoom smallproduct 31530898636">
+                  <div class="product__inside">
+                    <!-- product image -->
+                    <div class="product__inside__image">
+                      <a href=/products/<%= product.id %>>
+                        <%= image_tag(product.image, :alt => "Black Cap") %>
+                      </a>
+                      <a href="javascript:void(0);" onclick="quiqview('black-cap')"
+                      class="quick-view">
+                        <b>
+                          <span class="icon icon-visibility"></span> Quick View
+                        </b>
+                      </a>
+                    </div>
+                    <div class="product__inside__name">
+                      <h2 class="product_title">
+                        <a href="/products/black-cap"><%= product.name %></a>
+                      </h2>
+                    </div>
+                    <!-- /product name -->
+                    <!-- product description -->
+                    <!-- visible only in row-view mode -->
+                    <div class="product__inside__description row-mode-visible">
+                      <%= product.description_long %>
+                    </div>
+                    <!-- /product description -->
+                    <!-- product price -->
+                    <div class="product__inside__price price-box baseprice">
+                      <span class=money><%= product.price_in %></span>
+                    </div>
+                    <!-- /product price -->
+                    <!-- product review -->
+                    <!-- visible only in row-view mode -->
+                    <div class="product__inside__review row-mode-visible">
+                      <div class="rating row-mode-visible">
+                        <span class="shopify-product-reviews-badge" data-id="9097940108"></span>
+                      </div>
+                    </div>
+                    <!-- /product review -->
+                    <div class="product__inside__hover">
+                      <!-- product info -->
+                      <div class="product__inside__info">
+                        <div class="product__inside__info__btns">
+                          <% if logged_in? %>
+                          <a href="<%= carts_path(quanitily: 1, product_id: product.id, user_id: current_user.id ) %>" class="btn btn--ys btn--xl addtocart-js" data-method="post">
+                            <span class="icon icon-shopping_basket">
+                            </span>
+                          </a>
+                          <% end %>
+                          <a href="javascript:void(0);" onclick="quiqview('black-cap')"
+                          class="btn btn--ys btn--xl  row-mode-visible hidden-xs">
+                            <span class="icon icon-visibility"></span> Quick View
+                          </a>
+                        </div>
+                        <div class="custom__info__link hidden-xs"></div>
+                      </div>
+                      <!-- /product info -->
+                    </div>
+                  </div>
+                </div>
+                <!-- /product -->
+              </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- end featured products -->
+  </div>
+
+  <!-- END content_for_index -->
+</div>

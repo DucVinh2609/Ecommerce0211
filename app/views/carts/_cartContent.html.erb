@@ -1,0 +1,158 @@
+<div id="pageContent" class="starthide">
+  <!-- CONTENT section -->
+  <div class="container">
+    <!-- title -->
+    <div class="title-box">
+      <h1 class="text-center text-uppercase title-under">Shopping Cart</h1>
+    </div>
+    <!-- /title -->
+    <form action="/cart" method="post" novalidate>
+      <!-- Shopping cart table -->
+      <div class="container-widget">
+        <table class="shopping-cart-table">
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>&nbsp;</th>
+              <th>&nbsp;</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Total</th>
+              <th>&nbsp;</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Product -->
+            <% tong = 0  %>
+            <% @carts.each do |cart| %>
+                <% price = Product.find(cart.product_id).price_in %>
+                <% quantity = cart.quanitily %>
+                <% @tongsanpham = price * quantity %>
+            <tr>
+              <td>
+                <div class="shopping-cart-table__product-image">
+                  <a href=/products/<%= Product.find(cart.product_id).id %>>
+                    <%= image_tag(Product.find(cart.product_id).image, :alt => "") %>
+                  </a>
+                </div>
+              </td>
+              <td>
+                <h5 class="shopping-cart-table__product-name text-left text-uppercase">
+                <a href="/products/copy-of-carhartt-logo-starter?variant=31530902348">
+                  <%= Product.find(cart.product_id).name %>
+                </a>
+              </h5>
+                <ul class="shopping-cart-table__list-parameters">
+                  <li class="visible-xs">
+                    <span>Price</span>
+                    <span class="price-mobile">
+                      <span class=money>
+                        <%= Product.find(cart.product_id).price_in %>
+                      </span>
+                    </span>
+                  </li>
+                  <li class="visible-xs">
+                    <span>Quantity</span>
+                    <span class="shopping-cart-table__input">
+                    <input type="text" name="updates[]" id="updates_31530902348" class="form-control input-mobile" value="3" min="1" max="100000">
+                  </span>
+                  </li>
+                  <li class="visible-xs">
+                    <span>Subtotal</span>
+                    <span class="price-mobile">
+                      <span class=money><%= tong = tong + @tongsanpham %>
+                      </span>
+                    </span>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <a class="shopping-cart-table__delete icon icon-delete visible-xs" >
+                  <%= link_to t("header-wrapper.str9"), cart, method: :delete,
+                  data: {confirm: t("sure")} %>
+                </a>
+              </td>
+              <td>
+                <div class="shopping-cart-table__product-price unit-price">
+                  <span class=money><%= Product.find(cart.product_id).price_in %></span>
+                </div>
+              </td>
+              <td>
+                <div class="shopping-cart-table__input">
+                  <input type="number" name="updates[]" id="updates_31530902348" class="form-control input-desktop"
+                  value="<%= quantity = cart.quanitily %>" min="1" max="100000" title="Many in stock">
+                </div>
+              </td>
+              <td>
+                <div class="shopping-cart-table__product-price subtotal">
+                  <span class=money><%= @tongsanpham %></span>
+                </div>
+              </td>
+              <td>
+                <a class="shopping-cart-table__delete icon icon-delete visible-xs" >
+                  <%= link_to t("header-wrapper.str9"), cart, method: :delete,
+                  data: {confirm: t("sure")} %>
+                </a>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <!-- /Shopping cart table -->
+      <div class="divider divider--xs"></div>
+      <div class="clearfix shopping-cart-btns">
+        <button type="submit" class="btn btn--ys btn--light pull-right" id="update-cart"
+        name="update">
+          <span class="icon icon-autorenew"></span>Update Cart
+        </button>
+        <div class="divider divider--xs visible-xs"></div>
+        <a class="btn btn--ys btn--light" href="/cart/clear">
+          <span class="icon icon-delete"></span>CLEAR SHOPPING CART
+        </a>
+        <div class="divider divider--xs visible-xs"></div>
+        <a class="btn btn--ys btn--light pull-left btn-right" href="/">
+          <span class="icon icon-keyboard_arrow_left">
+          </span>CONTINUE SHOPPING
+        </a>
+        <div class="divider divider--xs visible-xs"></div>
+      </div>
+      <div class="divider--md"></div>
+      <div class="row">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+        </div>
+
+        <div class="divider--md visible-sm visible-xs"></div>
+        <div class="col-md-4">
+          <div class="card card--padding">
+            <table class="table-total">
+              <tbody>
+                <tr id="subtotal">
+                  <th class="text-left">Subtotal</th>
+                  <td class="text-right"><span class=money>
+                    <%= tong %>
+
+                  </span>
+                  </td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr id="grandtotal">
+                  <th>GRAND TOTAL</th>
+                  <td><span class=money><%= tong %></span>
+                  </td>
+                </tr>
+              </tfoot>
+            </table>
+            <button type="submit" name="checkout" class="btn btn--ys btn--full btn--xl">
+              PROCEED TO CHECKOUT
+              <span class="icon icon--flippedX icon-reply"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
